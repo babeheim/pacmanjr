@@ -2,7 +2,7 @@
 
 find_missing_packages <- function(path = ".", recursive = TRUE) {
 
-  out <- list(0)
+  out <- list()
 
   script_files <- list.files(path, recursive = recursive,
     full.names = TRUE, pattern = "\\.r$|\\.R$")

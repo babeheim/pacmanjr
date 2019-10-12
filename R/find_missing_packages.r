@@ -13,7 +13,7 @@ find_missing_packages <- function(path = ".", recursive = TRUE) {
 
   for (i in 1:length(script_files)) {
     my_code <- readLines(script_files[i])
-    m <- gregexpr("(?<=library\\().*(?=\\))|(?<=require\\().*(?=\\))", my_code, perl = TRUE)
+    m <- gregexpr("(?<=library\\()\\w+(?=\\))|(?<=require\\()\\w+(?=\\))", my_code, perl = TRUE)
     local_packages <- unlist(regmatches(my_code, m))
     required_packages <- sort(unique(c(required_packages, local_packages)))
   }
